@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 require("dotenv").config()
-const dataBase=process.env.DATABASE
 
-console.log(dataBase,"database")
-const url =dataBase
+// const DB_URL =process.env.DB_URL
+const DB_URL="mongodb+srv://eCommerce:eCommerce@cluster0.3wz3tca.mongodb.net/e_comm?retryWrites=true&w=majority";
 
-mongoose.connect(url,()=>{
+console.log("DB_URL",DB_URL)
+
+mongoose.connect(DB_URL,()=>{
   console.log("db connected")
 });
