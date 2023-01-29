@@ -1,3 +1,5 @@
+require("dotenv").config()
+const PORT=process.env.PORT||4000
 require("./db/config");
 const users = require("./db/users");
 const product = require("./db/product");
@@ -75,4 +77,4 @@ app.get("/flowers", verifyToken, async (req, res) => {
   res.send(data);
 });
 
-app.listen(4000);
+app.listen(PORT);
