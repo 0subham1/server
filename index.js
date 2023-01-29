@@ -56,12 +56,17 @@ app.post("/login", async (req, res) => {
 
 app.get("/users", async (req, res) => {
   let result = await users.find();
-  // res.send("user list api");
+  res.send("user list api");
 });
 
 app.get("/", (req, res) => {
   res.send("hello world");
 });
+
+app.get("/abc", (req, res) => {
+  res.send("abc world");
+});
+
 
 app.get("/prodList", async (req, res) => {
   let result = await product.find();
