@@ -1,5 +1,5 @@
-require("dotenv").config()
-const PORT=process.env.PORT||4000
+require("dotenv").config();
+const PORT = process.env.PORT || 4000;
 // const PORT=4000
 
 require("./db/config");
@@ -18,10 +18,10 @@ const jwt = require("jsonwebtoken");
 const jwtKey = "e-co_mmerce123";
 
 const verifyToken = (req, res, next) => {
-  let token = req.headers['authorization'];
+  let token = req.headers["authorization"];
   if (token) {
-  //  token= token.split(' ')[1]
-    console.log(token,"token")
+    //  token= token.split(' ')[1]
+    console.log(token, "token");
     jwt.verify(token, jwtKey, (err, valid) => {
       if (err) {
         res.status(401).send("wrong token");
@@ -55,8 +55,12 @@ app.post("/login", async (req, res) => {
 });
 
 app.get("/users", async (req, res) => {
-  // let result = await users.find();
-  res.send("user list api");
+  let result = await users.find();
+  // res.send("user list api");
+});
+
+app.get("/", (req, res) => {
+  res.send("hello world");
 });
 
 app.get("/prodList", async (req, res) => {
@@ -74,9 +78,11 @@ app.get("/user/:id", async (req, res) => {
   res.send(result);
 });
 
-app.get("/flowers",  async (req, res) => {
+app.get("/flowers", async (req, res) => {
   let data = await flowers.find();
   res.send(data);
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log("port listening on", PORT);
+});
