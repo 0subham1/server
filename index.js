@@ -11,9 +11,9 @@ app.use(cors());
 
 
 //API IMPORTS
-app.use("",require("./API/userApi"))
-
-app.use("",require("./API/productApi"))
+app.use("",require("./API/usersApi"))
+app.use("",require("./API/itemsApi"))
+app.use("",require("./API/ordersApi"))
 
 
 app.listen(PORT, () => {
