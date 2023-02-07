@@ -15,7 +15,9 @@ app.use("",require("./API/usersApi"))
 app.use("",require("./API/itemsApi"))
 app.use("",require("./API/ordersApi"))
 
-
+app.get("/",  (req, res) => {
+  res.send("hello world");
+});
 app.listen(PORT, () => {
   console.log("port listening on", PORT);
 });
