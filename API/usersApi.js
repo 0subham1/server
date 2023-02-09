@@ -39,7 +39,7 @@ router.post("/signUp", async (req, res) => {
   let salt = await bcrypt.genSalt(10);
   let securePass = await bcrypt.hash(req.body.password, salt);
   let exist = await users.findOne({ name: req.body.name });
-
+ 
   if (exist) {
     res.send("user already exist with given name");
   } else {
@@ -47,6 +47,7 @@ router.post("/signUp", async (req, res) => {
       name: req.body.name,
       phone: req.body.phone,
       password: securePass,
+      isAdmin:req.body.isAdmin
     });
     res.send(result);
   }
