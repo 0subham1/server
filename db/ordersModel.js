@@ -8,7 +8,7 @@ const schema = mongoose.Schema({
   subTotal:Number,
   total:Number,
   tax:String,
-
+  orderId:String
 });
 
 module.exports = mongoose.model("orders", schema);
